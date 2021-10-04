@@ -1,0 +1,1659 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+	<title></title>
+	<style>
+		* {
+			box-sizing: border-box;
+			padding: 0;
+			margin: 0;
+			font-family: 'Amiri', serif;
+		}
+
+		body {
+			min-width: 400px;
+overflow-x: hidden;
+		}
+
+		body>div {
+			/* overflow-y: hidden; */
+		}
+
+		.top-sec {
+			text-align: center;
+			background: rgb(43, 71, 66);
+
+			color: white;
+			/* padding-top: 135px;
+		padding-bottom: 50px; */
+			height: 400px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: 0 15px;
+		}
+
+		h1 {
+
+			font-size: 26px;
+
+			font-weight: normal;
+			line-height: normal;
+			margin-bottom: 32px;
+		}
+
+		h2 {
+			font-size: 16px;
+			line-height: 2.7;
+			font-weight: 100;
+		}
+
+		.calculator-sec {
+			display: flex;
+			align-items: stretch;
+
+		}
+
+		.calculator-sec>div {
+			width: 50%;
+			padding: 45px 15px 15px 15px;
+		}
+
+		.calculator-sec .form-field {
+			max-width: 500px;
+			margin: auto;
+			margin-bottom: 39px;
+		}
+.calculator-sec .form-field.two{
+	display: flex;
+	align-items: baseline;
+}
+.calculator-sec .form-field.two>div:nth-of-type(1){
+	width: 48%;
+}
+.calculator-sec .form-field.two>div:nth-of-type(2){
+	padding-left: 30px;
+}
+		.calculator-sec .form-field:nth-last-of-type(1) {
+			margin-bottom: 15px;
+		}
+
+		.calculator-sec .result-side {
+			background: rgb(43, 71, 66);
+			color: white;
+			padding-top: 20px;
+		}
+
+		.calculator-sec h3 {
+			font-size: 12px;
+			font-weight: 100;
+			text-align: center;
+			margin-bottom: 45px;
+		}
+
+		.calculator-sec .label {
+			font-size: 20px;
+			line-height: normal;
+			/* line-height: 42px; */
+			line-height: 1.5;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    display: block;
+
+		}
+
+		.calculator-sec .input {
+			border: 2px solid rgba(145, 145, 145, 1);
+			height: 46px;
+			width: 100%;
+			cursor: pointer;
+			text-align: left;
+
+			padding: 0 15px;
+			background: transparent;
+			display: block;
+			border-radius: 0 !important;
+			color: rgba(43, 71, 66, 1);
+		}
+
+		.calculator-sec .input:hover {
+
+			border-color: rgba(43, 71, 66);
+			border-radius: 0 !important;
+			outline: none;
+		}
+
+		.calculator-sec .input:hover+.input-h {
+			width: calc(100% - 4px);
+			height: 42px;
+			position: absolute;
+			left: 2px;
+			bottom: 2px;
+			display: block;
+			content: "";
+			background: rgba(242, 250, 249, 0.9);
+			z-index: -1;
+		}
+
+		.calculator-sec .input:focus,
+		.calculator-sec .input:active {
+			border-radius: 0px !important;
+			outline: none;
+		}
+
+		.calculator-sec select {
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			text-indent: 1px;
+			text-overflow: '';
+		}
+
+		.calculator-sec select::-ms-expand {
+			display: none;
+		}
+
+		.calculator-sec .form-field.two>div,
+		.calculator-sec .form-field {
+			position: relative;
+		}
+.calculator-sec .form-field.two>div>svg,
+		.calculator-sec .form-field>svg {
+
+			position: absolute;
+			bottom: 16px;
+			right: 20px;
+			width: 16px;
+			z-index: -1;
+			fill: rgba(0, 0, 0, 0.3);
+		}
+
+		.calculator-sec  .form-field.select svg {
+			fill: black;
+			width: 12px;
+			bottom: 20px;
+		}
+
+		.calculator-sec #calculate {
+			background: rgb(43, 71, 66);
+			height: 46px;
+			width: 100%;
+			margin-top: -50px;
+			border: 1px solid rgb(43, 71, 66);
+			color: white;
+			transition: 0.5s;
+			cursor: pointer;
+			margin-bottom: 10px;
+			font-size: 12px;
+		}
+
+		.calculator-sec #calculate:hover {
+			color: rgb(43, 71, 66);
+			background: white;
+		}
+
+		.calculator-sec .result-side #p1 {
+			font-size: 25px;
+			line-height: 42px;
+			margin-bottom: 10px;
+			text-align: left;
+		}
+
+		.calculator-sec .result-side>div {
+			display: flex;
+			height: 91px;
+			align-items: center;
+			margin-bottom: 0;
+		}
+
+		.calculator-sec .result-side>div:nth-of-type(1) {
+			margin-bottom: -20px;
+		}
+
+		.calculator-sec .result-side>div p:nth-last-of-type(1) {
+
+			width: 95px;
+			text-align: right;
+		}
+
+		.calculator-sec .result-side>div p:nth-last-of-type(2) {
+
+			width: 115px;
+			text-align: right;
+		}
+
+		.calculator-sec .result-side>div label {
+			width: 100%;
+		}
+
+
+
+
+
+		.calendar {
+			/* min-height: 340px; */
+			width: 320px;
+			/* border-radius: 0; */
+			padding: 0;
+			position: relative;
+			/* overflow: hidden; */
+			visibility: hidden;
+			position: absolute !important;
+			background: white;
+			z-index: 1;
+			border: 2px solid rgb(43, 71, 66);
+
+		}
+
+		.calendar>div {
+			position: relative;
+		}
+
+		.light .calendar {
+			box-shadow: var(--shadow);
+		}
+
+		.calendar-header {
+			height: 62px;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			font-size: 16px;
+			font-weight: 100;
+			color: white;
+			padding: 10px;
+			background: rgb(43, 71, 66);
+			/* position: absolute;
+					top: 0; */
+		}
+
+		.calendar-header svg {
+			width: 6px;
+			fill: white;
+		}
+
+		.calendar-body {
+			padding: 20px;
+			/* position: absolute;
+	top: 62px; */
+		}
+
+		.calendar-header .month-c {
+			width: 100px;
+			text-align: center;
+		}
+
+		.calendar-header .year-c {
+			width: 60px;
+			text-align: center;
+		}
+
+		.calendar-week-day {
+			height: 35px;
+			display: grid;
+			grid-template-columns: repeat(7, 1fr);
+			font-weight: 600;
+			font-size: 13px;
+		}
+
+		.calendar-week-day div {
+			display: grid;
+			place-items: center;
+			color: var(--bg-second);
+			font-size: 13px;
+			color: #2B4742;
+		}
+
+		.calendar-days {
+			display: grid;
+			grid-template-columns: repeat(7, 1fr);
+			gap: 2px;
+			color: var(--color-txt);
+			font-size: 13px;
+			font-weight: 500;
+		}
+
+		.calendar-days div {
+			width: 37px;
+			height: 37px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: 5px;
+			position: relative;
+			cursor: pointer;
+			animation: to-top 1s forwards;
+			font-size: 13px;
+			color: #2B4742;
+			/* border-radius: 50%; */
+		}
+
+		.calendar-days div span {
+			position: absolute;
+		}
+
+		.calendar-days div:hover span {
+			transition: width 0.2s ease-in-out, height 0.2s ease-in-out;
+		}
+
+		.calendar-days div span:nth-child(1),
+		.calendar-days div span:nth-child(3) {
+			width: 2px;
+			height: 0;
+			background-color: var(--color-txt);
+		}
+
+		.calendar-days div:hover span:nth-child(1),
+		.calendar-days div:hover span:nth-child(3) {
+			height: 100%;
+		}
+
+		.calendar-days div span:nth-child(1) {
+			bottom: 0;
+			left: 0;
+		}
+
+		.calendar-days div span:nth-child(3) {
+			top: 0;
+			right: 0;
+		}
+
+		.calendar-days div span:nth-child(2),
+		.calendar-days div span:nth-child(4) {
+			width: 0;
+			height: 2px;
+			background-color: var(--color-txt);
+		}
+
+		.calendar-days div:hover span:nth-child(2),
+		.calendar-days div:hover span:nth-child(4) {
+			width: 100%;
+		}
+
+		.calendar-days div span:nth-child(2) {
+			top: 0;
+			left: 0;
+		}
+
+		.calendar-days div span:nth-child(4) {
+			bottom: 0;
+			right: 0;
+		}
+
+		.calendar-days div:hover span:nth-child(2) {
+			transition-delay: 0.2s;
+		}
+
+		.calendar-days div:hover span:nth-child(3) {
+			transition-delay: 0.4s;
+		}
+
+		.calendar-days div:hover span:nth-child(4) {
+			transition-delay: 0.6s;
+		}
+
+		.calendar-days div.select-date,
+		.calendar-days div.select-date:hover {
+			background-color: rgb(43, 71, 66);
+			color: white;
+		}
+
+		/* .calendar-days div.curr-date,
+	.calendar-days div.curr-date:hover {
+			background-color: rgb(43, 71, 66,0.5);
+			color: white;
+	} */
+
+		.calendar-days div.curr-date span {
+			display: none;
+		}
+
+		.year-picker,
+		.month-picker {
+			padding: 5px 10px;
+			border-radius: 10px;
+			cursor: pointer;
+		}
+
+		.year-picker .year-change:nth-last-of-type(1) svg,
+		.month-picker .month-change:nth-last-of-type(1) svg {
+			transform: rotate(180deg);
+		}
+
+		/* .month-picker:hover {
+			background-color: var(--color-hover);
+	} */
+		.month-picker,
+		.year-picker {
+			display: flex;
+			align-items: center;
+		}
+
+		.month-change,
+		.year-change {
+			height: 40px;
+			/* width: 40px; */
+			border-radius: 50%;
+			display: grid;
+			place-items: center;
+			padding: 0 10px;
+			cursor: pointer;
+		}
+
+		.month-change:hover,
+		.year-change:hover {
+			background-color: var(--color-hover);
+		}
+
+		.calendar-footer {
+			padding: 10px;
+			display: flex;
+			justify-content: flex-end;
+			align-items: center;
+		}
+
+		.toggle {
+			display: flex;
+		}
+
+		.toggle span {
+			margin-right: 10px;
+			color: var(--color-txt);
+		}
+
+		.dark-mode-switch {
+			position: relative;
+			width: 48px;
+			height: 25px;
+			border-radius: 14px;
+			background-color: var(--bg-second);
+			cursor: pointer;
+		}
+
+		.dark-mode-switch-ident {
+			width: 21px;
+			height: 21px;
+			border-radius: 50%;
+			background-color: var(--bg-main);
+			position: absolute;
+			top: 2px;
+			left: 2px;
+			transition: left 0.2s ease-in-out;
+		}
+
+		.dark .dark-mode-switch .dark-mode-switch-ident {
+			top: 2px;
+			left: calc(2px + 50%);
+		}
+
+		.month-list {
+			/* position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			background-color: var(--bg-main);
+			padding: 20px;
+			grid-template-columns: repeat(3, auto);
+			gap: 5px;
+			display: grid;
+			transform: scale(1.5); */
+			visibility: hidden;
+			pointer-events: none;
+			display: none;
+		}
+
+
+
+		/* .month-list > div {
+			display: grid;
+			place-items: center;
+	}
+
+	.month-list > div > div {
+			width: 100%;
+			padding: 5px 20px;
+			border-radius: 10px;
+			text-align: center;
+			cursor: pointer;
+			color: var(--color-txt);
+	}
+
+	.month-list > div > div:hover {
+			background-color: var(--color-hover);
+	} */
+
+		/* @keyframes to-top {
+			0% {
+					transform: translateY(100%);
+					opacity: 0;
+			}
+			100% {
+					transform: translateY(0);
+					opacity: 1;
+			}
+	} */
+
+
+
+		@media (max-width:767px) {
+			.calculator-sec {
+				flex-direction: column;
+			}
+
+			.calculator-sec>div {
+				width: 100%;
+			}
+
+			.calculator-sec>div:nth-of-type(1) {
+				padding-left: 35px;
+				padding-right: 35px;
+				padding-bottom: 0;
+				/* padding-top: 25px; */
+			}
+
+			.calculator-sec>div {
+				padding-top: 25px;
+			}
+
+			.calculator-sec .form-field {
+				margin-bottom: 20px;
+			}
+
+			.calculator-sec .form-field.two{
+				display: block;
+				/* align-items: baseline; */
+			}
+			.calculator-sec .form-field.two>div:nth-of-type(1){
+				width: 100%;
+				margin-bottom: 20px;
+			}
+			.calculator-sec .form-field.two>div:nth-of-type(2){
+				padding-left: 0;
+				width: 100%;
+			}
+
+			.calculator-sec .label {
+				font-size: 14px;
+			}
+
+			.calculator-sec .result-side>div {
+				height: 40px;
+			}
+
+			.calculator-sec #calculate {
+				margin-top: 0;
+			}
+
+			h1 {
+				font-size: 14px;
+				line-height: 3;
+				margin-bottom: 5px;
+			}
+
+			h2 {
+				font-size: 12px;
+			}
+
+			.calculator-sec .result-side {
+				padding-left: 25px;
+				padding-right: 25px;
+			}
+
+			.top-sec {
+				height: 200px;
+			}
+
+			.top-sec>div {
+				/* max-width: 370px; */
+			}
+
+			.calculator-sec h3 {
+				font-size: 11px;
+				margin-left: -20px;
+				margin-right: -20px;
+				margin-bottom: 5px;
+			}
+
+			.calculator-sec .result-side>div:nth-of-type(1) {
+				margin-bottom: 0;
+			}
+		}
+
+		.calendar-years-list {
+			position: absolute;
+			width: 100%;
+			height: calc(100% - 62px);
+			left: 0;
+			Bottom: 0;
+			overflow-y: scroll;
+			background: white;
+			visibility: hidden;
+		}
+
+		.calendar-years-list span {
+			display: block;
+			margin: 3px auto;
+			width: 78px;
+			height: 34px;
+			text-align: center;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 13px;
+
+		}
+
+		.calendar-years-list span:hover {
+			background: rgba(43, 71, 66, 0.1);
+			cursor: pointer;
+		}
+
+		.calendar-years-list span.select-year {
+			background: rgb(43, 71, 66);
+			color: white;
+		}
+
+
+
+
+		.show {
+			transform: scale(1);
+			visibility: visible;
+			pointer-events: visible;
+			transition: all 0.2s ease-in-out;
+		}
+
+		.selected-year-btn {
+			display: none;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="top-sec">
+		<div class="">
+			<h1>Liquidated Ascertained Damages ( LAD ) Calculator Third Generation</h1>
+			<h2>Calculate how much Liquidated Ascertained Damages <br>
+
+				( LAD ) home buyers can claim against property developer for late <br>
+				delivery of property in Malaysia.
+			</h2>
+
+		</div>
+
+
+	</div>
+	<!--link with database name LAD Calculator Test Database : https://docs.google.com/spreadsheets/d/1_72z6neHcL5EXiKLsno18PT84kKYe2UlZrzmcfksYaA/edit#gid=0 -->
+
+	<div class="calculator-sec">
+		<div class="">
+			<h3>Update the details below to calculate your Liquidated Ascertained Damages amount.</h3>
+
+			<div class="form-field two">
+				<div class="">
+					<label class="label">Condominium Name</label>
+					<input class="input" type="text" id="input6" placeholder="Condominium Name">
+					<div class="input-h"></div>
+				</div>
+				<div class="">
+					<label class="label">Date of Booking Fee Payment</label>
+					<input class="input" type="text" id="datePicker1" placeholder="Select a date" readonly>
+					<div class="input-h"></div>
+					<div class="calendar" id="calendar1">
+						<div class="">
+							<div class="calendar-header">
+								<span class="month-picker">
+									<span class="month-change" id="calendar1-prev-month">
+										<pre><svg class="singleSideArrow_svg__nav-symbol" viewBox="0 0 7 12.6"><path d="M7 .9L6.3.1 0 6.6l6.3 6.2.7-.7-5.6-5.5L7 .9z"></path></svg></pre>
+									</span>
+									<span class="month-c" id="calendar1-month-picker">February</span>
+									<span class="month-change" id="calendar1-next-month">
+										<pre><svg   class="singleSideArrow_svg__nav-symbol" viewBox="0 0 7 12.6"><path d="M7 .9L6.3.1 0 6.6l6.3 6.2.7-.7-5.6-5.5L7 .9z"></path></svg></pre>
+									</span>
+
+								</span>
+
+								<div class="year-picker">
+									<span class="year-change" id="calendar1-prev-year">
+										<pre><svg class="singleSideArrow_svg__nav-symbol" viewBox="0 0 7 12.6"><path d="M7 .9L6.3.1 0 6.6l6.3 6.2.7-.7-5.6-5.5L7 .9z"></path></svg></pre>
+									</span>
+									<span class="year-c" id="calendar1-year-change">2021</span>
+									<span class="year-change" id="calendar1-next-year">
+										<pre><svg  class="singleSideArrow_svg__nav-symbol" viewBox="0 0 7 12.6"><path d="M7 .9L6.3.1 0 6.6l6.3 6.2.7-.7-5.6-5.5L7 .9z"></path></svg></pre>
+									</span>
+								</div>
+							</div>
+							<div class="calendar-body">
+								<div class="calendar-week-day">
+
+									<div>Mo</div>
+									<div>Tu</div>
+									<div>We</div>
+									<div>Th</div>
+									<div>Fr</div>
+									<div>Sa</div>
+									<div>Su</div>
+								</div>
+								<div class="calendar-days" id="calendar1-days"></div>
+								<div class="calendar-years-list" id="calendar1-years-list"></div>
+							</div>
+
+
+							<div class="month-list" id="calendar1-month-list"></div>
+						</div>
+
+					</div>
+
+					<svg viewBox="0 0 16 15">
+						<path d="M16 0H0v15h16zm-1 14H1V4h14zM1 3V1h14v2z"></path>
+						<path d="M3 6h2v2H3zm4 0h2v2H7zm4 0h2v2h-2zm0 4h2v2h-2zm-4 0h2v2H7zm-4 0h2v2H3z"></path>
+					</svg>
+				</div>
+
+			</div>
+
+
+			<div class="form-field two">
+				<div class="">
+					<label class="label">Property Purchase Price</label>
+					<input class="input" type="text" id="input1" placeholder="Purchace Price">
+					<div class="input-h"></div>
+				</div>
+				<div class="">
+					<label class="label">Actual Date of Vacant Possession</label>
+					<!-- <input type="date" id="datePicker2"> -->
+					<input class="input" type="text" id="datePicker2" placeholder="Select a date" readonly>
+					<div class="input-h"></div>
+					<div class="calendar" id="calendar2">
+						<div class="">
+							<div class="calendar-header">
+								<span class="month-picker">
+									<span class="month-change" id="calendar2-prev-month">
+										<pre><svg class="singleSideArrow_svg__nav-symbol" viewBox="0 0 7 12.6"><path d="M7 .9L6.3.1 0 6.6l6.3 6.2.7-.7-5.6-5.5L7 .9z"></path></svg></pre>
+									</span>
+									<span class="month-c" id="calendar2-month-picker">February</span>
+									<span class="month-change" id="calendar2-next-month">
+										<pre><svg   class="singleSideArrow_svg__nav-symbol" viewBox="0 0 7 12.6"><path d="M7 .9L6.3.1 0 6.6l6.3 6.2.7-.7-5.6-5.5L7 .9z"></path></svg></pre>
+									</span>
+
+								</span>
+
+								<div class="year-picker">
+									<span class="year-change" id="calendar2-prev-year">
+										<pre><svg class="singleSideArrow_svg__nav-symbol" viewBox="0 0 7 12.6"><path d="M7 .9L6.3.1 0 6.6l6.3 6.2.7-.7-5.6-5.5L7 .9z"></path></svg></pre>
+									</span>
+									<span class="year-c" id="calendar2-year-change">2021</span>
+									<span class="year-change" id="calendar2-next-year">
+										<pre><svg   class="singleSideArrow_svg__nav-symbol" viewBox="0 0 7 12.6"><path d="M7 .9L6.3.1 0 6.6l6.3 6.2.7-.7-5.6-5.5L7 .9z"></path></svg></pre>
+									</span>
+								</div>
+							</div>
+							<div class="calendar-body">
+								<div class="calendar-week-day">
+
+									<div>Mo</div>
+									<div>Tu</div>
+									<div>We</div>
+									<div>Th</div>
+									<div>Fr</div>
+									<div>Sa</div>
+									<div>Su</div>
+								</div>
+								<div class="calendar-days" id="calendar2-days"></div>
+								<div class="calendar-years-list" id="calendar2-years-list"></div>
+							</div>
+
+							<div class="month-list" id="calendar2-month-list"></div>
+						</div>
+
+					</div>
+					<svg viewBox="0 0 16 15">
+						<path d="M16 0H0v15h16zm-1 14H1V4h14zM1 3V1h14v2z"></path>
+						<path d="M3 6h2v2H3zm4 0h2v2H7zm4 0h2v2h-2zm0 4h2v2h-2zm-4 0h2v2H7zm-4 0h2v2H3z"></path>
+					</svg>
+				</div>
+			</div>
+
+
+			<div class="form-field select">
+				<label class="label">Type of Project</label>
+				<select class="input" id="dropdown1">
+					<option value="HDA - 36 Months">HDA - 36 Months</option>
+					<option value="Non HDA - 48 Months">Non HDA - 48 Months</option>
+					<option value="Non HDA - 54 Months">Non HDA - 54 Months</option>
+					<option value="Non HDA - 60 Months">Non HDA - 60 Months</option>
+				</select>
+				<div class="input-h"></div>
+
+				<svg fill="red" class="_1sD6O" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9.2828 4.89817">
+					<title>arrow&amp;amp;v</title>
+					<path d="M4.64116,4.89817a.5001.5001,0,0,1-.34277-.13574L.15727.86448A.50018.50018,0,0,1,.84282.136L4.64116,3.71165,8.44.136a.50018.50018,0,0,1,.68555.72852L4.98393,4.76243A.5001.5001,0,0,1,4.64116,4.89817Z"></path>
+				</svg>
+			</div>
+
+			<div class="form-field select">
+				<label class="label">Has the developer obtained further Covid-19 extension?</label>
+				<select class="input" id="dropdown2">
+					<option value="No, only from 18 March 2020 until 31 August 2020">No, only from 18 March 2020 until 31 August 2020</option>
+					<option value="Yes, from 18 March 2020 until 31 December 2020">Yes, from 18 March 2020 until 31 December 2020</option>
+					<option value="Yes, from 18 March 2020 until 31 March 2021">Yes, from 18 March 2020 until 31 March 2021</option>
+				</select>
+
+				<div class="input-h"></div>
+
+				<svg fill="red" class="_1sD6O" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9.2828 4.89817">
+					<title>arrow&amp;amp;v</title>
+					<path d="M4.64116,4.89817a.5001.5001,0,0,1-.34277-.13574L.15727.86448A.50018.50018,0,0,1,.84282.136L4.64116,3.71165,8.44.136a.50018.50018,0,0,1,.68555.72852L4.98393,4.76243A.5001.5001,0,0,1,4.64116,4.89817Z"></path>
+				</svg>
+			</div>
+
+			<div class="form-field two">
+				<div class="">
+					<label class="label">Name</label>
+					<input class="input" type="text" id="input9">
+					<div class="input-h"></div>
+				</div>
+
+				<div class="">
+					<label class="label">Contact Number</label>
+					<input class="input" type="text" id="input10">
+					<div class="input-h"></div>
+				</div>
+
+			</div>
+
+
+
+
+			<div class="form-field">
+				<button id="calculate">Calculate</button>
+			</div>
+
+
+		</div>
+
+		<div class="result-side">
+			<div class="">
+				<p id="p1">Result</p>
+			</div>
+
+			<div class="">
+				<label class="label">Estimated Completion Date</label>
+				<p class="label" id="text50">mm/dd/yyyy</p>
+				<p class="label">Date</p>
+			</div>
+
+			<div class="">
+				<label>Duration of Delay</label>
+				<p id="text42">0</p>
+				<p>Days</p>
+			</div>
+
+			<div class="">
+				<label>Deduction under Covid-19 Act</label>
+				<p id="text88">0</p>
+				<p>Days</p>
+			</div>
+
+			<div class="">
+				<label>Actual Duration of Delay</label>
+				<p id="text97">0</p>
+				<p>Days</p>
+			</div>
+
+			<div class="">
+				<label>Lad Amount</label>
+				<p id="text91">0</p>
+				<p>RM</p>
+			</div>
+
+			<div class="">
+				<label>Lad for Common Area</label>
+				<p id="text94">0</p>
+				<p>RM</p>
+			</div>
+
+
+		</div>
+
+
+
+	</div>
+
+
+	<!-- <label>Type of Project:</label>
+	<select id="dropdown1">
+		<option value="HDA - 36 Months">HDA - 36 Months</option>
+		<option value="Non HDA - 48 Months">Non HDA - 48 Months</option>
+		<option value="Non HDA - 54 Months">Non HDA - 54 Months</option>
+		<option value="Non HDA - 60 Months">Non HDA - 60 Months</option>
+	</select><br><br> -->
+
+	<!-- <label>Has the developer obtained further Covid-19 extension?</label>
+	<select id="dropdown2">
+		<option value="No, only from 18 March 2020 until 31 August 2020">No, only from 18 March 2020 until 31 August 2020</option>
+		<option value="Yes, from 18 March 2020 until 31 December 2020">Yes, from 18 March 2020 until 31 December 2020</option>
+		<option value="Yes, from 18 March 2020 until 31 March 2021">Yes, from 18 March 2020 until 31 March 2021</option>
+	</select><br><br> -->
+
+	<!-- <label>Date of Booking Fee Payment:</label>
+<input type="date" id="datePicker1"><br><br> -->
+
+	<!-- <label>Actual Date of Vacant Possession:</label>
+	<input type="date" id="datePicker2"><br><br> -->
+
+	<!-- <label>Property Purchase Price:</label>
+	<input type="text" id="input1"><br><br> -->
+
+	<!-- <label>Condominium Name:</label>
+<input type="text" id="input6"><br><br> -->
+
+	<!-- <label>Name:</label>
+	<input type="text" id="input9"><br><br> -->
+
+	<!-- <label>Contact Number:</label>
+	<input type="text" id="input10"><br><br> -->
+
+
+
+
+	<!-- <p id="p1">Result</p> -->
+	<!-- <label>Estimated Completion Date:</label>
+	<p id="text50">mm/dd/yyyy</p>
+	<p>Date</p> -->
+
+	<!-- <label>Duration of Delay:</label>
+	<p id="text42">0</p>
+	<p>Days</p> -->
+
+	<!-- <label>Deduction under Covid-19 Act:</label>
+	<p id="text88">0</p>
+	<p>Days</p> -->
+
+	<!-- <label>Actual Duration of Delay:</label>
+	<p id="text97">0</p>
+	<p>Days</p> -->
+
+	<!-- <label>Lad Amount:</label>
+	<p id="text91">0</p>
+	<p>RM</p> -->
+
+	<!-- <label>Lad for Common Area:</label>
+	<p id="text94">0</p>
+	<p>RM</p> -->
+
+	<!-- <button id="calculate">Calculate</button> -->
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.12.0/moment.js"></script>
+	<script>
+		$("#calculate").click(function() {
+
+			var estimatedCompletionDate = new Date();
+			var today = new Date();
+			var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+			var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+			var submissionDateTime = date + ' ' + time;
+			var covid19FurtherExtension = document.getElementById("dropdown2").value;
+			var bookingFeePaymentDate = document.getElementById("datePicker1").value;
+			var actualVacantPosessionDate = document.getElementById("datePicker2").value;
+			var propertyPurchasePrice = document.getElementById("input1").value;
+			var typeOfProject = document.getElementById("dropdown1").value;
+			var userName = document.getElementById("input9").value;
+			var userContactNumber = document.getElementById("input10").value;
+			var propertyName = document.getElementById("input6").value;
+
+
+			var bookingFeePaymentDate_Date = new Date(bookingFeePaymentDate);
+			var actualVacantPosessionDate_Date = new Date(actualVacantPosessionDate);
+
+			bookingFeePaymentDate_Date.setHours(0);
+			bookingFeePaymentDate_Date.setMinutes(0);
+			bookingFeePaymentDate_Date.setSeconds(0);
+			bookingFeePaymentDate_Date.setMilliseconds(0);
+
+			actualVacantPosessionDate_Date.setHours(0);
+			actualVacantPosessionDate_Date.setMinutes(0);
+			actualVacantPosessionDate_Date.setSeconds(0);
+			actualVacantPosessionDate_Date.setMilliseconds(0);
+
+			if (bookingFeePaymentDate_Date === null || bookingFeePaymentDate_Date === "" || actualVacantPosessionDate_Date === null || actualVacantPosessionDate_Date === "" || propertyPurchasePrice === null || propertyPurchasePrice === "" ||
+				propertyPurchasePrice <= 0 || bookingFeePaymentDate_Date >= actualVacantPosessionDate || typeOfProject === null || typeOfProject === "" || userName === null || userName === "" || userContactNumber === null || userContactNumber === "" ||
+				propertyName === null || propertyName === "" || covid19FurtherExtension === null || covid19FurtherExtension === "") {
+				document.getElementById("text50").innerHTML = "Invalid";
+				document.getElementById("text42").innerHTML = "Invalid";
+				document.getElementById("text88").innerHTML = "Invalid";
+				document.getElementById("text97").innerHTML = "Invalid";
+				document.getElementById("text91").innerHTML = "Invalid";
+				document.getElementById("text94").innerHTML = "Invalid";
+				return false;
+			}
+
+
+			estimatedCompletionDate.setTime(bookingFeePaymentDate_Date.getTime());
+			if (typeOfProject.match('HDA - 36 Months')) {
+				estimatedCompletionDate.setMonth(bookingFeePaymentDate_Date.getMonth() + 36);
+				estimatedCompletionDate.setHours(0);
+				estimatedCompletionDate.setMinutes(0);
+				estimatedCompletionDate.setSeconds(0);
+				estimatedCompletionDate.setMilliseconds(0);
+			} else if (typeOfProject.match('HDA - 48 Months')) {
+				estimatedCompletionDate.setMonth(bookingFeePaymentDate_Date.getMonth() + 48);
+				estimatedCompletionDate.setHours(0);
+				estimatedCompletionDate.setMinutes(0);
+				estimatedCompletionDate.setSeconds(0);
+				estimatedCompletionDate.setMilliseconds(0);
+			} else if (typeOfProject.match('HDA - 54 Months')) {
+				estimatedCompletionDate.setMonth(bookingFeePaymentDate_Date.getMonth() + 54);
+				estimatedCompletionDate.setHours(0);
+				estimatedCompletionDate.setMinutes(0);
+				estimatedCompletionDate.setSeconds(0);
+				estimatedCompletionDate.setMilliseconds(0);
+			} else if (typeOfProject.match('HDA - 60 Months')) {
+				estimatedCompletionDate.setMonth(bookingFeePaymentDate_Date.getMonth() + 60);
+				estimatedCompletionDate.setHours(0);
+				estimatedCompletionDate.setMinutes(0);
+				estimatedCompletionDate.setSeconds(0);
+				estimatedCompletionDate.setMilliseconds(0);
+			}
+
+
+			// To calculate the time difference of two dates
+			var timeDurationOfDelay = actualVacantPosessionDate_Date.getTime() - estimatedCompletionDate.getTime();
+
+
+			// To calculate the no. of days between two dates
+			var dayDurationOfDelay = timeDurationOfDelay / (1000 * 3600 * 24);
+
+			var lad = propertyPurchasePrice * (dayDurationOfDelay / 365) * 0.1;
+			var ladCommonArea = lad / 5;
+
+			if (dayDurationOfDelay <= 0) {
+				dayDurationOfDelay = 0;
+
+				document.getElementById("text50").innerHTML = "Invalid";
+				document.getElementById("text42").innerHTML = "Invalid";
+				document.getElementById("text88").innerHTML = "Invalid";
+				document.getElementById("text97").innerHTML = "Invalid";
+				document.getElementById("text91").innerHTML = "Invalid";
+				document.getElementById("text94").innerHTML = "Invalid";
+				return false;
+			}
+
+
+
+			var covid19ActStart = new Date;
+			var covid19ActEnd = new Date;
+
+
+			covid19ActStart.setFullYear(2020);
+			covid19ActStart.setMonth(2);
+			covid19ActStart.setDate(18);
+			covid19ActStart.setHours(0);
+			covid19ActStart.setMinutes(0);
+			covid19ActStart.setSeconds(0);
+			covid19ActStart.setMilliseconds(0);
+
+			if (covid19FurtherExtension.match('Yes, from 18 March 2020 until 31 March 2021')) {
+				covid19ActEnd.setFullYear(2021);
+				covid19ActEnd.setMonth(2);
+				covid19ActEnd.setDate(31);
+				covid19ActEnd.setHours(0);
+				covid19ActEnd.setMinutes(0);
+				covid19ActEnd.setSeconds(0);
+				covid19ActEnd.setMilliseconds(0)
+
+			} else if (covid19FurtherExtension.match('Yes, from 18 March 2020 until 31 December 2020')) {
+				covid19ActEnd.setFullYear(2020);
+				covid19ActEnd.setMonth(11);
+				covid19ActEnd.setDate(31);
+				covid19ActEnd.setHours(0);
+				covid19ActEnd.setMinutes(0);
+				covid19ActEnd.setSeconds(0);
+				covid19ActEnd.setMilliseconds(0)
+
+			} else if (covid19FurtherExtension.match('No, only from 18 March 2020 until 31 August 2020')) {
+				covid19ActEnd.setFullYear(2020);
+				covid19ActEnd.setMonth(7);
+				covid19ActEnd.setDate(31);
+				covid19ActEnd.setHours(0);
+				covid19ActEnd.setMinutes(0);
+				covid19ActEnd.setSeconds(0);
+				covid19ActEnd.setMilliseconds(0)
+			}
+
+			var timeCal1 = covid19ActEnd.getTime() - actualVacantPosessionDate_Date.getTime();
+			var timeCal2 = covid19ActEnd.getTime() - estimatedCompletionDate.getTime();
+			var timeCal3 = covid19ActStart.getTime() - actualVacantPosessionDate_Date.getTime();
+			var timeCal4 = covid19ActStart.getTime() - estimatedCompletionDate.getTime();
+			var dayCal1 = timeCal1 / (1000 * 3600 * 24);
+			var dayCal2 = timeCal2 / (1000 * 3600 * 24);
+			var dayCal3 = timeCal3 / (1000 * 3600 * 24);
+			var dayCal4 = timeCal4 / (1000 * 3600 * 24);
+			var actualLadAmountCovid19Act;
+			var actualLadCommonAreaAmountCovid19Act;
+			var timeCovid19ActExtensionTime;
+			var dayCovid19ActExtensionDay;
+			var timeCovid19LadAmount;
+			var dayCovid19LadAmount;
+
+
+			if (dayCal1 >= 0 && dayCal2 > 0 && dayCal3 < 0 && dayCal4 <= 0) {
+
+				timeCovid19ActExtensionTime = actualVacantPosessionDate_Date.getTime() - estimatedCompletionDate.getTime();
+				dayCovid19ActExtensionDay = timeCovid19ActExtensionTime / (1000 * 3600 * 24);
+				actualLadAmountCovid19Act = 0;
+				actualLadCommonAreaAmountCovid19Act = 0;
+
+
+
+			} else if (dayCal1 <= 0 && dayCal2 > 0 && dayCal3 < 0 && dayCal4 >= 0) {
+
+				timeCovid19LadAmount = actualVacantPosessionDate_Date.getTime() - estimatedCompletionDate.getTime() - (covid19ActEnd.getTime() - covid19ActStart.getTime());
+				dayCovid19LadAmount = timeCovid19LadAmount / (1000 * 3600 * 24);
+				timeCovid19ActExtensionTime = covid19ActEnd.getTime() - covid19ActStart.getTime();
+				dayCovid19ActExtensionDay = timeCovid19ActExtensionTime / (1000 * 3600 * 24);
+				actualLadAmountCovid19Act = propertyPurchasePrice * 0.1 * (dayCovid19LadAmount / 365);
+				actualLadCommonAreaAmountCovid19Act = (actualLadAmountCovid19Act / 5);
+
+
+
+			} else if (dayCal1 > 0 && dayCal2 > 0 && dayCal3 <= 0 && dayCal4 > 0) {
+
+				timeCovid19LadAmount = covid19ActStart.getTime() - estimatedCompletionDate.getTime();
+				dayCovid19LadAmount = timeCovid19LadAmount / (1000 * 3600 * 24);
+				timeCovid19ActExtensionTime = actualVacantPosessionDate_Date.getTime() - covid19ActStart.getTime();
+				dayCovid19ActExtensionDay = timeCovid19ActExtensionTime / (1000 * 3600 * 24);
+				actualLadAmountCovid19Act = propertyPurchasePrice * 0.1 * (dayCovid19LadAmount / 365);
+				actualLadCommonAreaAmountCovid19Act = (actualLadAmountCovid19Act / 5);
+
+
+
+			} else if (dayCal1 < 0 && dayCal2 >= 0 && dayCal3 < 0 && dayCal4 < 0) {
+
+				timeCovid19LadAmount = actualVacantPosessionDate_Date.getTime() - covid19ActEnd.getTime();
+				dayCovid19LadAmount = timeCovid19LadAmount / (1000 * 3600 * 24);
+				timeCovid19ActExtensionTime = covid19ActEnd.getTime() - estimatedCompletionDate.getTime();
+				dayCovid19ActExtensionDay = timeCovid19ActExtensionTime / (1000 * 3600 * 24);
+				actualLadAmountCovid19Act = propertyPurchasePrice * 0.1 * (dayCovid19LadAmount / 365);
+				actualLadCommonAreaAmountCovid19Act = (actualLadAmountCovid19Act / 5);
+
+
+
+			} else if (dayCal1 > 0 && dayCal2 > 0 && dayCal3 > 0 && dayCal4 > 0) {
+				dayCovid19ActExtensionDay = 0;
+				actualLadAmountCovid19Act = lad;
+				actualLadCommonAreaAmountCovid19Act = ladCommonArea;
+
+
+
+			} else if (dayCal1 < 0 && dayCal2 < 0 && dayCal3 < 0 && dayCal4 < 0) {
+				dayCovid19ActExtensionDay = 0;
+				actualLadAmountCovid19Act = lad;
+				actualLadCommonAreaAmountCovid19Act = ladCommonArea;
+
+
+			}
+
+			var actualDaysOfDelay = dayDurationOfDelay - dayCovid19ActExtensionDay;
+
+			var bookingFeePaymentDateOnly = bookingFeePaymentDate_Date.getFullYear() + '-' + (bookingFeePaymentDate_Date.getMonth() + 1) + '-' + bookingFeePaymentDate_Date.getDate();
+
+			var actualVacantPosessionDateOnly = actualVacantPosessionDate_Date.getFullYear() + '-' + (actualVacantPosessionDate_Date.getMonth() + 1) + '-' + actualVacantPosessionDate_Date.getDate();
+
+			var estimatedCompletionDateOnly = estimatedCompletionDate.getFullYear() + '-' + (estimatedCompletionDate.getMonth() + 1) + '-' + estimatedCompletionDate.getDate();
+
+
+
+			document.getElementById("text50").innerHTML = (estimatedCompletionDate.getMonth() + 1) + "/" + estimatedCompletionDate.getDate() + "/" + estimatedCompletionDate.getFullYear();;
+			document.getElementById("text42").innerHTML = dayDurationOfDelay;
+			document.getElementById("text91").innerHTML = actualLadAmountCovid19Act.toFixed(2).toString();
+			document.getElementById("text94").innerHTML = actualLadCommonAreaAmountCovid19Act.toFixed(2).toString();
+			document.getElementById("text88").innerHTML = dayCovid19ActExtensionDay.toString();
+			document.getElementById("text97").innerHTML = actualDaysOfDelay.toString();
+
+
+
+			var twoDActualLadAmountCovid19Act = actualLadAmountCovid19Act.toFixed(2).toString();
+			var twoDActualLadCommonAreaAmountCovid19Act = actualLadCommonAreaAmountCovid19Act.toFixed(2).toString();
+			var twoDLadAmount = lad.toFixed(2).toString();
+			var twoDLadCommonArea = ladCommonArea.toFixed(2).toString();
+
+			let data = {
+				submissionDateTime,
+				bookingFeePaymentDateOnly,
+				estimatedCompletionDateOnly,
+				actualVacantPosessionDateOnly,
+				dayDurationOfDelay,
+				propertyPurchasePrice,
+				typeOfProject,
+				twoDLadAmount,
+				twoDLadCommonArea,
+				propertyName,
+				userName,
+				userContactNumber,
+				dayCovid19ActExtensionDay,
+				actualDaysOfDelay,
+				twoDActualLadAmountCovid19Act,
+				twoDActualLadCommonAreaAmountCovid19Act
+			}
+			fetch('https://script.google.com/macros/s/AKfycbzOf0dUWjb0k0UUg7E8jTsaKRdAXBK4yDOX8mIbH955emxZULYvBrCiXiHLjUmPxhmjJw/exec?' + new URLSearchParams(data));
+
+
+		});
+	</script>
+
+
+
+
+
+
+
+
+
+
+	<script type="text/javascript">
+	const month_names = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+
+	isLeapYear = (year) => {
+		return (year % 4 === 0 && year % 100 !== 0 && year % 400 !== 0) || (year % 100 === 0 && year % 400 === 0)
+	}
+
+	getFebDays = (year) => {
+		return isLeapYear(year) ? 29 : 28
+	}
+
+
+	let calendar1 = document.querySelector('#calendar1')
+	let calendar1_days = calendar1.querySelector('#calendar1-days')
+	let calendar1_years_list = calendar1.querySelector('#calendar1-years-list')
+	let calendar1_header_year = calendar1.querySelector('#calendar1-year-change')
+	let calendar1_month_list = calendar1.querySelector('#calendar1-month-list')
+	var dateSelect1 = document.querySelector("#datePicker1");
+
+	calendar1.setAttribute("day", new Date().getDate())
+	calendar1.setAttribute("month", new Date().getMonth())
+	calendar1.setAttribute("year", new Date().getFullYear())
+
+	calendar1.setAttribute("day_selected", new Date().getDate())
+	calendar1.setAttribute("month_selected", new Date().getMonth())
+	calendar1.setAttribute("year_selected", new Date().getFullYear())
+
+
+
+	let calendar2 = document.querySelector('#calendar2')
+	let calendar2_days = calendar2.querySelector('#calendar2-days')
+	let calendar2_years_list = calendar2.querySelector('#calendar2-years-list')
+	let calendar2_header_year = calendar2.querySelector('#calendar2-year-change')
+	let calendar2_month_list = calendar2.querySelector('#calendar2-month-list')
+	var dateSelect2 = document.querySelector("#datePicker2");
+
+	calendar2.setAttribute("day", new Date().getDate())
+	calendar2.setAttribute("month", new Date().getMonth())
+	calendar2.setAttribute("year", new Date().getFullYear())
+
+	calendar2.setAttribute("day_selected", new Date().getDate())
+	calendar2.setAttribute("month_selected", new Date().getMonth())
+	calendar2.setAttribute("year_selected", new Date().getFullYear())
+
+
+
+
+	var calendar2_yearSpanClicked = false;
+
+	generateCalendar1 = (month, year) => {
+
+
+		let days_of_month = [31, getFebDays(year), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+
+		calendar1_days.innerHTML = ''
+		calendar1_month_picker.innerHTML = `${month_names[month-1]}`
+		calendar1_header_year.innerHTML = year
+
+
+		// get first day of month
+		let first_day = new Date(year, month - 1, 0)
+// console.log("first day " + first_day.getDay())
+
+		for (let i = 1; i <= days_of_month[month - 1] + first_day.getDay() ; i++) {
+			let day = document.createElement('div')
+			let date = i - first_day.getDay()
+			// console.log("date " + date + " i " + i)
+
+			if (i >= first_day.getDay()+1) {
+				day.classList.add('calendar-day-hover')
+				day.innerHTML = date
+
+				if (date == calendar1.getAttribute("day_selected") && year == calendar1.getAttribute("year_selected") && ((month - 1) == calendar1.getAttribute("month_selected"))) {
+					day.classList.add('select-date')
+				}
+
+				day.onclick = () => {
+
+
+					calendar1.setAttribute("day", date)
+					calendar1.setAttribute("month", month - 1)
+					calendar1.setAttribute("year", year)
+
+					calendar1.setAttribute("day_selected", date)
+					calendar1.setAttribute("month_selected", month - 1)
+					calendar1.setAttribute("year_selected", year)
+
+					dateSelect1.value = "";
+					dateSelect1.value = +calendar1.getAttribute("month") + 1 + "/" + calendar1.getAttribute("day") + "/" + calendar1.getAttribute("year");
+					calendar1.classList.remove('show');
+
+					generateCalendar1(+calendar1.getAttribute("month") + 1, calendar1.getAttribute("year"))
+				}
+			}
+			calendar1_days.appendChild(day)
+		}
+
+
+		calendar1_years_list.innerHTML = ""
+		calendar2_yearSpanClicked = false;
+		for (var i = 1900; i <= 2100; i++) {
+			let yearSpan = document.createElement('span')
+			yearSpan.innerHTML = i;
+
+			if (i == calendar1.getAttribute("year")) {
+				yearSpan.classList.add('select-year')
+			}
+
+			yearSpan.setAttribute("year", i)
+			yearSpan.onclick = () => {
+				calendar1_selectYear = (yearSpan.getAttribute("year"));
+				calendar1.setAttribute("year", yearSpan.getAttribute("year"))
+				generateCalendar1(+calendar1.getAttribute("month") + 1, calendar1.getAttribute("year"))
+				calendar1_years_list.classList.remove("show")
+				calendar2_yearSpanClicked = true;
+			}
+			calendar1_years_list.appendChild(yearSpan)
+
+		}
+
+
+		calendar1_header_year.onclick = () => {
+			calendar1_years_list.classList.toggle("show")
+
+			calendar1_years_list.querySelector('.select-year').scrollIntoView({
+				block: 'nearest'
+
+			})
+
+			if (calendar1.getAttribute("year") == new Date().getFullYear()) {
+				calendar1_years_list.scrollBy(0, 110)
+				// alert("fds")
+			}
+		}
+	}
+
+
+
+	let calendar1_month_picker = calendar1.querySelector('#calendar1-month-picker')
+
+
+	generateCalendar1(+calendar1.getAttribute("month") + 1, calendar1.getAttribute("year"))
+
+	document.querySelector('#calendar1-prev-year').onclick = () => {
+
+
+		calendar1.setAttribute("year", calendar1.getAttribute("year") - 1)
+		generateCalendar1(+calendar1.getAttribute("month") + 1, calendar1.getAttribute("year"))
+
+	}
+
+
+	document.querySelector('#calendar1-next-year').onclick = () => {
+		calendar1.setAttribute("year", +calendar1.getAttribute("year") + 1)
+		generateCalendar1(+calendar1.getAttribute("month") + 1, calendar1.getAttribute("year"))
+	}
+
+	document.querySelector('#calendar1-prev-month').onclick = () => {
+		if (calendar1.getAttribute("month") == 0) {
+			calendar1.setAttribute("year", calendar1.getAttribute("year") - 1)
+			calendar1.setAttribute("month", 11)
+		} else {
+			calendar1.setAttribute("month", calendar1.getAttribute("month") - 1)
+		}
+
+		generateCalendar1(+calendar1.getAttribute("month") + 1, calendar1.getAttribute("year"))
+	}
+
+	document.querySelector('#calendar1-next-month').onclick = () => {
+		if (calendar1.getAttribute("month") == 11) {
+			calendar1.setAttribute("year", +calendar1.getAttribute("year") + 1)
+			calendar1.setAttribute("month", 0)
+		} else {
+			calendar1.setAttribute("month", +calendar1.getAttribute("month") + 1)
+		}
+
+
+		generateCalendar1(+calendar1.getAttribute("month") + 1, calendar1.getAttribute("year"))
+	}
+
+
+
+
+
+
+	dateSelect1.addEventListener("click", function() {
+		if (calendar1.classList.contains('show')) {
+			calendar1.classList.remove('show');
+			calendar1_years_list.classList.remove("show")
+			calendar2.classList.remove('show');
+			calendar2_years_list.classList.remove("show")
+		} else {
+			calendar1.classList.add('show');
+		}
+		generateCalendar1(+calendar1.getAttribute("month_selected") + 1, calendar1.getAttribute("year_selected"))
+	});
+
+	window.addEventListener('click', function(e) {
+		if ((calendar1.contains(e.target) || dateSelect1.contains(e.target) || calendar1_years_list.contains(e.target) || calendar2_yearSpanClicked) && calendar1.classList.contains('show')) {
+			// Clicked in box
+		} else {
+			// Clicked outside the box
+			calendar1.classList.remove('show');
+			calendar1_years_list.classList.remove("show")
+		}
+
+
+	});
+
+
+
+
+
+
+
+
+
+	var calendar2_calendar2_yearSpanClicked = false;
+
+	generateCalendar2 = (month, year) => {
+
+
+		let days_of_month = [31, getFebDays(year), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+
+		calendar2_days.innerHTML = ''
+		calendar2_month_picker.innerHTML = `${month_names[month-1]}`
+		calendar2_header_year.innerHTML = year
+
+
+		// get first day of month
+		let first_day = new Date(year, month - 1, 0)
+
+
+		for (let i = 1; i <= days_of_month[month - 1] + first_day.getDay() ; i++) {
+			let day = document.createElement('div')
+			let date = i - first_day.getDay()
+			if (i >= first_day.getDay()+1) {
+				day.classList.add('calendar-day-hover')
+				day.innerHTML = date
+
+				if (date == calendar2.getAttribute("day_selected") && year == calendar2.getAttribute("year_selected") && ((month - 1) == calendar2.getAttribute("month_selected"))) {
+					day.classList.add('select-date')
+				}
+
+				day.onclick = () => {
+
+
+					calendar2.setAttribute("day", date)
+					calendar2.setAttribute("month", month - 1)
+					calendar2.setAttribute("year", year)
+
+					calendar2.setAttribute("day_selected", date)
+					calendar2.setAttribute("month_selected", month - 1)
+					calendar2.setAttribute("year_selected", year)
+
+					dateSelect2.value = "";
+					dateSelect2.value = +calendar2.getAttribute("month") + 1 + "/" + calendar2.getAttribute("day") + "/" + calendar2.getAttribute("year");
+					calendar2.classList.remove('show');
+
+					generateCalendar2(+calendar2.getAttribute("month") + 1, calendar2.getAttribute("year"))
+				}
+			}
+			calendar2_days.appendChild(day)
+		}
+
+
+		calendar2_years_list.innerHTML = ""
+
+		calendar2_yearSpanClicked = false;
+		for (var i = 1900; i <= 2100; i++) {
+			let yearSpan = document.createElement('span')
+			yearSpan.innerHTML = i;
+
+			if (i == calendar2.getAttribute("year")) {
+				yearSpan.classList.add('select-year')
+			}
+
+			yearSpan.setAttribute("year", i)
+			yearSpan.onclick = () => {
+				calendar2_selectYear = (yearSpan.getAttribute("year"));
+				calendar2.setAttribute("year", yearSpan.getAttribute("year"))
+				generateCalendar2(+calendar2.getAttribute("month") + 1, calendar2.getAttribute("year"))
+				calendar2_years_list.classList.remove("show")
+
+				calendar2_yearSpanClicked = true;
+
+			}
+			calendar2_years_list.appendChild(yearSpan)
+
+		}
+
+
+		calendar2_header_year.onclick = () => {
+			calendar2_years_list.classList.toggle("show")
+
+			calendar2_years_list.querySelector('.select-year').scrollIntoView({
+				block: 'nearest'
+
+			})
+
+			if (calendar2.getAttribute("year") == new Date().getFullYear()) {
+				calendar2_years_list.scrollBy(0, 110)
+				// alert("fds")
+			}
+		}
+
+	}
+
+
+
+	let calendar2_month_picker = calendar2.querySelector('#calendar2-month-picker')
+
+
+	generateCalendar2(+calendar2.getAttribute("month") + 1, calendar2.getAttribute("year"))
+
+	document.querySelector('#calendar2-prev-year').onclick = () => {
+
+
+		calendar2.setAttribute("year", calendar2.getAttribute("year") - 1)
+		generateCalendar2(+calendar2.getAttribute("month") + 1, calendar2.getAttribute("year"))
+
+	}
+
+
+	document.querySelector('#calendar2-next-year').onclick = () => {
+		calendar2.setAttribute("year", +calendar2.getAttribute("year") + 1)
+		generateCalendar2(+calendar2.getAttribute("month") + 1, calendar2.getAttribute("year"))
+	}
+
+	document.querySelector('#calendar2-prev-month').onclick = () => {
+		if (calendar2.getAttribute("month") == 0) {
+			calendar2.setAttribute("year", calendar2.getAttribute("year") - 1)
+			calendar2.setAttribute("month", 11)
+		} else {
+			calendar2.setAttribute("month", calendar2.getAttribute("month") - 1)
+		}
+
+		generateCalendar2(+calendar2.getAttribute("month") + 1, calendar2.getAttribute("year"))
+	}
+
+	document.querySelector('#calendar2-next-month').onclick = () => {
+		if (calendar2.getAttribute("month") == 11) {
+			calendar2.setAttribute("year", +calendar2.getAttribute("year") + 1)
+			calendar2.setAttribute("month", 0)
+		} else {
+			calendar2.setAttribute("month", +calendar2.getAttribute("month") + 1)
+		}
+
+
+		generateCalendar2(+calendar2.getAttribute("month") + 1, calendar2.getAttribute("year"))
+	}
+
+
+
+
+
+
+	dateSelect2.addEventListener("click", function() {
+		if (calendar2.classList.contains('show')) {
+			calendar2.classList.remove('show');
+			calendar2_years_list.classList.remove("show")
+			calendar1.classList.remove('show');
+			calendar1_years_list.classList.remove("show")
+		} else {
+			calendar2.classList.add('show');
+		}
+		generateCalendar2(+calendar2.getAttribute("month_selected") + 1, calendar2.getAttribute("year_selected"))
+	});
+
+	window.addEventListener('click', function(e) {
+		// let temp = calendar2_years_list.querySelectorAll("span")
+		// var clicked = false;
+		// // alert(temp.length)
+		// for (var i = 0; i < temp.length; i++) {
+		// 	console.log(temp[i].contains(e.target))
+		// 	if (temp[i].contains(e.target)) {
+		// 		clicked = true;
+		// 		alert(i)
+		// 	}
+		// }
+		// alert(calendar2_yearSpanClicked)
+		if ((calendar2.contains(e.target) || dateSelect2.contains(e.target) || calendar2_years_list.contains(e.target) || calendar2_yearSpanClicked) && calendar2.classList.contains('show')) {
+			// Clicked in box
+			// alert("in box")
+		} else {
+			// Clicked outside the box
+			calendar2.classList.remove('show');
+			calendar2_years_list.classList.remove("show")
+			// alert("out box")
+		}
+
+
+
+	});
+
+	</script>
+
+</body>
+
+</html>
