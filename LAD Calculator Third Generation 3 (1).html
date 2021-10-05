@@ -1407,6 +1407,7 @@ overflow-x: hidden;
 	window.addEventListener('click', function(e) {
 		if ((calendar1.contains(e.target) || dateSelect1.contains(e.target) || calendar1_years_list.contains(e.target) || calendar2_yearSpanClicked) && calendar1.classList.contains('show')) {
 			// Clicked in box
+			calendar2_yearSpanClicked = false;
 		} else {
 			// Clicked outside the box
 			calendar1.classList.remove('show');
@@ -1591,6 +1592,7 @@ overflow-x: hidden;
 		if ((calendar2.contains(e.target) || dateSelect2.contains(e.target) || calendar2_years_list.contains(e.target) || calendar2_yearSpanClicked) && calendar2.classList.contains('show')) {
 			// Clicked in box
 			// alert("in box")
+			calendar2_yearSpanClicked = false;
 		} else {
 			// Clicked outside the box
 			calendar2.classList.remove('show');
