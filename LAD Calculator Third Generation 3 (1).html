@@ -1412,6 +1412,7 @@ overflow-x: hidden;
 			// Clicked outside the box
 			calendar1.classList.remove('show');
 			calendar1_years_list.classList.remove("show")
+			calendar1.setAttribute("year", calendar1.getAttribute("year_selected"))
 		}
 
 
@@ -1598,6 +1599,7 @@ overflow-x: hidden;
 			calendar2.classList.remove('show');
 			calendar2_years_list.classList.remove("show")
 			// alert("out box")
+			calendar2.setAttribute("year", calendar2.getAttribute("year_selected"))
 		}
 
 
